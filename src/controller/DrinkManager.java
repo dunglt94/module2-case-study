@@ -3,6 +3,7 @@ package controller;
 import controller.add.AddDrinkFacade;
 import controller.add.DrinkInformation;
 import controller.add.DrinkTypeChoice;
+import controller.edit.DrinkEdit;
 import controller.validate_input.InputValidation;
 import model.Drink;
 import storage.DrinkStorage;
@@ -36,7 +37,11 @@ public class DrinkManager {
         return newDrink;
     }
 
-    public void editDrink() {}
+    public void editDrink() {
+        DrinkEdit drinkEdit = new DrinkEdit(new InputValidation(), new DrinkInformation());
+        drinks = drinkEdit.editDrink();
+        drinkStorage.writeDrinks(drinks);
+    }
 
     public void removeDrink() {}
 
