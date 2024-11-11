@@ -5,7 +5,7 @@ import controller.add.DrinkInformation;
 import controller.add.DrinkTypeChoice;
 import controller.edit.DrinkEdit;
 import controller.remove.DrinkRemove;
-import controller.sort.SortByPriceAsc;
+import controller.search.DrinkSearch;
 import controller.sort.SortSelection;
 import controller.validate_input.InputValidation;
 import model.Drink;
@@ -61,6 +61,9 @@ public class DrinkManager {
         sortSelection.sortList(choice);
     }
 
-    public void searchDrink() {}
+    public void searchDrink() {
+        DrinkSearch drinkSearch = new DrinkSearch();
+        drinkSearch.searchDrinkByType();
+    }
 
 }
