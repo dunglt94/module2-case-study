@@ -4,6 +4,7 @@ import controller.add.AddDrinkFacade;
 import controller.add.DrinkInformation;
 import controller.add.DrinkTypeChoice;
 import controller.edit.DrinkEdit;
+import controller.remove.DrinkRemove;
 import controller.validate_input.InputValidation;
 import model.Drink;
 import storage.DrinkStorage;
@@ -16,9 +17,13 @@ public class DrinkManager {
 
     public void printList() {
         try {
-            System.out.println("Drink List");
-            for (Drink drink : drinks) {
-                System.out.println(drink);
+            if (drinks.isEmpty()) {
+                System.out.println("There are no drinks.");
+            } else {
+                System.out.println("Drink List");
+                for (Drink drink : drinks) {
+                    System.out.println(drink);
+                }
             }
         } catch (NullPointerException e) {
             System.out.println("The list is empty");
@@ -43,7 +48,11 @@ public class DrinkManager {
         drinkStorage.writeDrinks(drinks);
     }
 
-    public void removeDrink() {}
+    public void removeDrink() {
+        DrinkRemove drinkRemove = new DrinkRemove(new InputValidation());
+        drinks = drinkRemove.removeDrink();
+        drinkStorage.writeDrinks(drinks);
+    }
 
     public void sortDrinks() {}
 

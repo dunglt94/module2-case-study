@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 public class InputValidation {
     static DrinkStorage drinkStorage = DrinkStorage.getInstance();
-    public static List<Drink> drinks = drinkStorage.readDrinks();
 
     public boolean validateIdInput(String id) {
         Pattern pattern = Pattern.compile("^[0-9]+$");
@@ -19,16 +18,13 @@ public class InputValidation {
     }
 
     public boolean isContainId(String id) {
-        try {
+            List<Drink> drinks = drinkStorage.readDrinks();
             for (Drink drink : drinks) {
                 if (drink.getId().equals(id)) {
                     return true;
                 }
             }
-        } catch (NullPointerException e) {
             return false;
-        }
-        return false;
     }
 
     public String isIdAvailable() {
@@ -39,11 +35,11 @@ public class InputValidation {
         do {
             System.out.print("Enter Id: ");
             id = scanner.nextLine();
-            validate = this.validateIdInput(id);
+            validate = validateIdInput(id);
             if (!validate) {
                 System.out.println("Please only enter number.");
             } else {
-                isAvailable = this.isContainId(id);
+                isAvailable = isContainId(id);
                 if (isAvailable) {
                     System.out.println("Id is not available. A product with id " + id + " already exists.");
                     System.out.println("Please enter another id.");
@@ -57,21 +53,21 @@ public class InputValidation {
         Scanner scanner = new Scanner(System.in);
         String id;
         boolean validate;
-        boolean isInTheList = false;
+        boolean isContainId = false;
         do {
             System.out.print("Enter Id: ");
             id = scanner.nextLine();
-            validate = this.validateIdInput(id);
+            validate = validateIdInput(id);
             if (!validate) {
                 System.out.println("Please only enter number.");
             } else {
-                isInTheList = this.isContainId(id);
-                if (!isInTheList) {
+                isContainId = isContainId(id);
+                if (!isContainId) {
                     System.out.println("Product with id " + id + " does not exists.");
                     System.out.println("Please try again.");
                 }
             }
-        } while (!validate || !isInTheList);
+        } while (!validate || !isContainId);
         return id;
     }
 }

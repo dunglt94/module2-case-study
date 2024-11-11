@@ -1,37 +1,33 @@
-package controller.edit;
+package controller.remove;
 
-import controller.add.DrinkInformation;
 import controller.validate_input.InputValidation;
 import model.Drink;
 import storage.DrinkStorage;
 
 import java.util.List;
 
-public class DrinkEdit {
+public class DrinkRemove {
     static DrinkStorage drinkStorage = DrinkStorage.getInstance();
     public static List<Drink> drinks = drinkStorage.readDrinks();
     private InputValidation inputValidation;
-    private DrinkInformation drinkInformation;
 
-    public DrinkEdit(InputValidation inputValidation, DrinkInformation drinkInformation) {
+    public DrinkRemove(InputValidation inputValidation) {
         this.inputValidation = inputValidation;
-        this.drinkInformation = drinkInformation;
     }
 
-    public List<Drink> editDrink() {
+    public List<Drink> removeDrink() {
         if (drinks.isEmpty()) {
             System.out.println("No drinks found.");
         } else {
-            System.out.println("Editing Drink:");
             String id = inputValidation.isInTheList();
             for (Drink drink : drinks) {
                 if (drink.getId().equals(id)) {
+                    System.out.println("Removed drink:");
                     System.out.println(drink);
-                    drinkInformation.inputDrinkInformation(drink);
+                    drinks.remove(drink);
                     break;
                 }
             }
-            System.out.println("Drink id " + id + " edited");
         }
         return drinks;
     }

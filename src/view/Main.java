@@ -47,9 +47,16 @@ public class Main {
     }
 
     private static int choice() {
-        System.out.print("Enter your choice: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        int choice = 0;
+        try {
+            System.out.print("Enter your choice: ");
+            Scanner scanner = new Scanner(System.in);
+            choice =  scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Please enter a number.");
+
+        }
+        return choice;
     }
 
     private static void choiceDrinkType() {
