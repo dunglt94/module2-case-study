@@ -3,6 +3,7 @@ package storage;
 import model.Drink;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DrinkStorage implements IDrinkStorage {
@@ -18,7 +19,7 @@ public class DrinkStorage implements IDrinkStorage {
 
     @Override
     public void writeDrinks(List<Drink> drinks) {
-        File file = new File("data/drinks.txt");
+        File file = new File("data/drink.txt");
         try {
             if (!file.exists()) {
                 //noinspection ResultOfMethodCallIgnored
@@ -37,12 +38,15 @@ public class DrinkStorage implements IDrinkStorage {
 
     @Override
     public List<Drink> readDrinks() {
-        File file = new File("data/drinks.txt");
+        File file = new File("data/drink.txt");
         try {
             ObjectInputStream os = new ObjectInputStream(new FileInputStream(file));
             Object o = os.readObject();
             //noinspection unchecked
             return (List<Drink>) o;
+        } catch (EOFException e) {
+            System.out.println("File is empty");
+            return new ArrayList<>();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException("Error reading drinks from file", e);
         }

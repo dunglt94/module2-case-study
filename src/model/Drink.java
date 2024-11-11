@@ -2,9 +2,10 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Drink implements Discount, Serializable {
-    private int id;
+    private String id;
     private String name;
     private LocalDate manufacturingDate;
     private double price;
@@ -12,7 +13,7 @@ public abstract class Drink implements Discount, Serializable {
 
     public Drink() {}
 
-    public Drink(int id, String name, LocalDate manufacturingDate, double price, int quantity) {
+    public Drink(String id, String name, LocalDate manufacturingDate, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.manufacturingDate = manufacturingDate;
@@ -20,11 +21,11 @@ public abstract class Drink implements Discount, Serializable {
         this.quantity = quantity;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

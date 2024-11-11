@@ -1,6 +1,7 @@
 package view;
 
 import controller.DrinkManager;
+import model.Drink;
 
 import java.util.Scanner;
 
@@ -16,14 +17,13 @@ public class Main {
             System.out.println("5. Sort drink list");
             System.out.println("6. Search drink by type");
             System.out.println("7. Exit");
-            System.out.println("Enter your choice");
 
             switch (choice()) {
                 case 1:
                     drinkManager.printList();
                     break;
                 case 2:
-                    drinkManager.addDrink();
+                    choiceDrinkType();
                     break;
                 case 3:
                     drinkManager.editDrink();
@@ -47,7 +47,23 @@ public class Main {
     }
 
     private static int choice() {
+        System.out.print("Enter your choice: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
+    }
+
+    private static void choiceDrinkType() {
+        Drink newDrink;
+        do {
+            System.out.println("Choose drink type:");
+            System.out.println("1. Beer");
+            System.out.println("2. Coffee");
+            System.out.println("3. Juice");
+            System.out.println("4. Milk");
+            System.out.println("5. Soft drink");
+            System.out.println("6. Back");
+
+            newDrink = drinkManager.addDrink(choice());
+        } while (newDrink == null && choice() != 6);
     }
 }
