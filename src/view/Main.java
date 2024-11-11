@@ -43,6 +43,24 @@ public class Main {
                 default:
                     System.out.println("Not a valid choice. Try again.");
             }
+
+            isContinue();
+        }
+    }
+
+    private static void isContinue() {
+        System.out.println("Do you want to continue?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        switch (choice()) {
+            case 1:
+                break;
+            case 2:
+                System.out.println("Have a nice day!");
+                System.exit(0);
+            default:
+                System.out.println("Not a valid choice. Try again.");
+                isContinue();
         }
     }
 
@@ -75,13 +93,13 @@ public class Main {
     }
 
     private static void sortMenu() {
-        do {
+//        do {
             System.out.println("Choose sort method:");
             System.out.println("1. Sort by price ascending");
             System.out.println("2. Sort by price descending");
             System.out.println("3. Back");
             drinkManager.sortDrinks(choice());
-        } while (choice() != 3);
+//        } while (choice() != 3);
 
     }
 }

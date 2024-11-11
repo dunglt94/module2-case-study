@@ -17,9 +17,9 @@ public class Milk extends Drink {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        return "Milk - id: " + super.getId() +
+        return "Milk, id: " + super.getId() +
                 ", name: " + super.getName() +
-                "\n MFG: " + super.getManufacturingDate().format(formatter) +
+                ", MFG: " + super.getManufacturingDate().format(formatter) +
                 ", EXP: " + this.getExpiryDate().format(formatter) +
                 ", price: " + this.getRealPrice() +
                 ", quantity: " + super.getQuantity();

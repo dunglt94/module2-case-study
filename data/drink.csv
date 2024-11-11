@@ -1,20 +1,10 @@
-Beer - id: 1, name: 333
- MFG: 12-11-2024, EXP: 12-11-2026, price: 15000.0, quantity: 500
-Coffee - id: 2, name: Cà phê sữa Highlands lon 235ml
- MFG: 12-11-2024, EXP: 12-11-2026, price: 15500.0, quantity: 1000
-Juice - id: 3, name: Nước táo ép Vinamilk Vfresh 100% - Hộp 1L
- MFG: 12-11-2024, EXP: 12-11-2026, price: 42900.0, quantity: 500
-Soft drink - id: 4, name: Pepsi
- MFG: 12-11-2024, EXP: 12-11-2026, price: 10000.0, quantity: 1500
-Milk - id: 5, name: sữa tươi tiệt trùng Vinamilk 100% có đường 180ml lốc
- MFG: 12-11-2024, EXP: 12-11-2026, price: 8000.0, quantity: 2000
-Beer - id: 6, name: Heineken
- MFG: 12-11-2024, EXP: 12-11-2026, price: 27000.0, quantity: 1000
-Coffee - id: 7, name: Cà Phê Sữa Boss Lon 180ml
- MFG: 12-11-2024, EXP: 12-11-2026, price: 9900.0, quantity: 500
-Juice - id: 8, name: Nước dừa đóng hộp Cocoxim Xanh Hộp 1L
- MFG: 12-11-2024, EXP: 12-11-2026, price: 38200.0, quantity: 800
-Milk - id: 9, name: Sữa Trái Cây Nutriboost Hương Cam 297ml
- MFG: 12-11-2024, EXP: 12-11-2026, price: 13800.0, quantity: 1200
-Soft drink - id: 10, name: Nước Tăng Lực Sting Vàng Lon 320ml
- MFG: 12-11-2024, EXP: 12-11-2026, price: 9600.0, quantity: 2000
+Beer, id: 1, name: 333, MFG: 12-11-2024, EXP: 12-11-2026, price: 15000.0, quantity: 500
+Coffee, id: 2, name: Cà phê sữa Highlands lon 235ml, MFG: 12-11-2024, EXP: 12-11-2026, price: 15500.0, quantity: 1000
+Juice, id: 3, name: Nước táo ép Vinamilk Vfresh 100% - Hộp 1L, MFG: 12-11-2024, EXP: 12-11-2026, price: 42900.0, quantity: 500
+Soft drink, id: 4, name: Pepsi, MFG: 12-11-2024, EXP: 12-11-2026, price: 10000.0, quantity: 1500
+Milk, id: 5, name: sữa tươi tiệt trùng Vinamilk 100% có đường 180ml lốc, MFG: 12-11-2024, EXP: 12-11-2026, price: 8000.0, quantity: 2000
+Beer, id: 6, name: Heineken, MFG: 12-11-2024, EXP: 12-11-2026, price: 27000.0, quantity: 1000
+Coffee, id: 7, name: Cà Phê Sữa Boss Lon 180ml, MFG: 12-11-2024, EXP: 12-11-2026, price: 9900.0, quantity: 500
+Juice, id: 8, name: Nước dừa đóng hộp Cocoxim Xanh Hộp 1L, MFG: 12-11-2024, EXP: 12-11-2026, price: 38200.0, quantity: 800
+Milk, id: 9, name: Sữa Trái Cây Nutriboost Hương Cam 297ml, MFG: 12-11-2024, EXP: 12-11-2026, price: 13800.0, quantity: 1200
+Soft drink, id: 10, name: Nước Tăng Lực Sting Vàng Lon 320ml, MFG: 12-11-2024, EXP: 12-11-2026, price: 9600.0, quantity: 2000

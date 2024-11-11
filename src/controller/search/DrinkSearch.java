@@ -36,7 +36,7 @@ public class DrinkSearch {
                 System.out.print("Enter drink type to search: ");
                 String drinkType = scanner.nextLine();
 
-                Pattern pattern = Pattern.compile(drinkType + " - (.*?) MFG:");
+                Pattern pattern = Pattern.compile(drinkType + ", (.*?) MFG:");
                 Matcher matcher = pattern.matcher(content);
 
                 boolean matchFound = false;
