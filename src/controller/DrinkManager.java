@@ -5,6 +5,8 @@ import controller.add.DrinkInformation;
 import controller.add.DrinkTypeChoice;
 import controller.edit.DrinkEdit;
 import controller.remove.DrinkRemove;
+import controller.sort.SortByPriceAsc;
+import controller.sort.SortSelection;
 import controller.validate_input.InputValidation;
 import model.Drink;
 import storage.DrinkStorage;
@@ -54,7 +56,10 @@ public class DrinkManager {
         drinkStorage.writeDrinks(drinks);
     }
 
-    public void sortDrinks() {}
+    public void sortDrinks(int choice) {
+        SortSelection sortSelection = new SortSelection();
+        sortSelection.sortList(choice);
+    }
 
     public void searchDrink() {}
 

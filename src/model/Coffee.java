@@ -17,7 +17,7 @@ public class Coffee extends Drink {
     public String toString() {
         return "Coffee - id: " + super.getId() +
                 ", name: " + super.getName() +
-                ", MFG: " + super.getManufacturingDate() +
+                "\n MFG: " + super.getManufacturingDate() +
                 ", EXP: " + this.getExpiryDate() +
                 ", price: " + this.getRealPrice() +
                 ", quantity: " + super.getQuantity();

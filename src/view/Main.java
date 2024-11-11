@@ -32,7 +32,7 @@ public class Main {
                     drinkManager.removeDrink();
                     break;
                 case 5:
-                    drinkManager.sortDrinks();
+                    sortMenu();
                     break;
                 case 6:
                     drinkManager.searchDrink();
@@ -72,5 +72,16 @@ public class Main {
 
             newDrink = drinkManager.addDrink(choice());
         } while (newDrink == null && choice() != 6);
+    }
+
+    private static void sortMenu() {
+        do {
+            System.out.println("Choose sort method:");
+            System.out.println("1. Sort by price ascending");
+            System.out.println("2. Sort by price descending");
+            System.out.println("3. Back");
+            drinkManager.sortDrinks(choice());
+        } while (choice() != 3);
+
     }
 }

@@ -19,7 +19,7 @@ public class SoftDrink extends Drink {
     public String toString() {
         return "Soft drink - id: " + super.getId() +
                 ", name: " + super.getName() +
-                ", MFG: " + super.getManufacturingDate() +
+                "\n MFG: " + super.getManufacturingDate() +
                 ", EXP: " + this.getExpiryDate() +
                 ", price: " + this.getRealPrice() +
                 ", quantity: " + super.getQuantity();
