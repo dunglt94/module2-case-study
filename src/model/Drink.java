@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Drink implements Discount, Serializable {
     private String id;
@@ -64,9 +65,10 @@ public abstract class Drink implements Discount, Serializable {
 
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return "Drink id: " + id +
                 ", name: " + name +
-                ", manufacturing date: " + manufacturingDate +
+                ", manufacturing date: " + manufacturingDate.format(formatter) +
                 ", price: " + price +
                 ", quantity: " + quantity;
     }

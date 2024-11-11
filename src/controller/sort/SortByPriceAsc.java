@@ -19,6 +19,7 @@ public class SortByPriceAsc implements SortStrategy{
                 }
             }
         }
+        System.out.println("Sorted by price ascending");
         for (Drink drink : drinks) {
             System.out.println(drink);
         }

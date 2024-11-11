@@ -23,6 +23,7 @@ public class SortByPriceDes implements SortStrategy{
                 drinks.set(currentMaxIndex, temp);
             }
         }
+        System.out.println("Sorted by price descending");
         for (Drink drink : drinks) {
             System.out.println(drink);
         }
