@@ -14,6 +14,7 @@ public class DrinkSearch {
         List<Drink> drinks = drinkStorage.readDrinks();
         try {
             StringBuilder content = new StringBuilder();
+
             for (Drink drink : drinks) {
                 content.append(drink.toString()).append("\n");
             }

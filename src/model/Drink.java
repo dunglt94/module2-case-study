@@ -65,7 +65,7 @@ public abstract class Drink implements Discount, Serializable {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "Drink id: " + id +
                 ", name: " + name +
                 ", manufacturing date: " + manufacturingDate.format(formatter) +

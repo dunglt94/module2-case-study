@@ -4,6 +4,7 @@ import controller.add.AddDrinkFacade;
 import controller.add.DrinkInformation;
 import controller.add.DrinkTypeChoice;
 import controller.edit.DrinkEdit;
+import controller.importCSVFile.CSVFileHandler;
 import controller.remove.DrinkRemove;
 import controller.search.DrinkSearch;
 import controller.sort.SortSelection;
@@ -66,4 +67,13 @@ public class DrinkManager {
         drinkSearch.searchDrinkByType();
     }
 
+    public void exportListToCSVFile() {
+        CSVFileHandler csvFileHandler = new CSVFileHandler();
+//        csvFileHandler.writeCSVFile();
+        List<Drink> drinks = csvFileHandler.readCSVFile();
+        for (Drink drink : drinks) {
+            System.out.println(drink);
+        }
+        System.out.println("The list was exported successfully.");
+    }
 }

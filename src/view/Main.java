@@ -16,7 +16,8 @@ public class Main {
             System.out.println("4. Remove drink");
             System.out.println("5. Sort drink list");
             System.out.println("6. Search drink by type");
-            System.out.println("7. Exit");
+            System.out.println("7. Export list to csv file");
+            System.out.println("8. Exit");
 
             int userChoice = choice();
             switch (userChoice) {
@@ -43,6 +44,9 @@ public class Main {
                     isContinue();
                     break;
                 case 7:
+                    drinkManager.exportListToCSVFile();
+                    break;
+                case 8:
                     System.out.println("Have a nice day!");
                     System.exit(0);
                 default:
@@ -55,7 +59,9 @@ public class Main {
         System.out.println("Do you want to continue?");
         System.out.println("1. Yes");
         System.out.println("2. No");
+
         int userChoice = choice();
+
         switch (userChoice) {
             case 1:
                 break;
