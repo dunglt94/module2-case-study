@@ -18,24 +18,29 @@ public class Main {
             System.out.println("6. Search drink by type");
             System.out.println("7. Exit");
 
-            switch (choice()) {
+            int userChoice = choice();
+            switch (userChoice) {
                 case 1:
                     drinkManager.printList();
+                    isContinue();
                     break;
                 case 2:
                     choiceDrinkType();
                     break;
                 case 3:
                     drinkManager.editDrink();
+                    isContinue();
                     break;
                 case 4:
                     drinkManager.removeDrink();
+                    isContinue();
                     break;
                 case 5:
                     sortMenu();
                     break;
                 case 6:
                     drinkManager.searchDrink();
+                    isContinue();
                     break;
                 case 7:
                     System.out.println("Have a nice day!");
@@ -43,7 +48,6 @@ public class Main {
                 default:
                     System.out.println("Not a valid choice. Try again.");
             }
-            isContinue();
         }
     }
 
@@ -51,7 +55,8 @@ public class Main {
         System.out.println("Do you want to continue?");
         System.out.println("1. Yes");
         System.out.println("2. No");
-        switch (choice()) {
+        int userChoice = choice();
+        switch (userChoice) {
             case 1:
                 break;
             case 2:
@@ -77,8 +82,8 @@ public class Main {
     }
 
     private static void choiceDrinkType() {
-        Drink newDrink;
-        do {
+        Drink newDrink = null;
+        while (newDrink == null) {
             System.out.println("Choose drink type:");
             System.out.println("1. Beer");
             System.out.println("2. Coffee");
@@ -87,18 +92,34 @@ public class Main {
             System.out.println("5. Soft drink");
             System.out.println("6. Back");
 
-            newDrink = drinkManager.addDrink(choice());
-        } while (newDrink == null && choice() != 6);
+            int userChoice = choice();
+
+            if (userChoice == 6) {
+                System.out.println("Going back to the main menu.");
+                return;
+            }
+            newDrink = drinkManager.addDrink(userChoice);
+        }
     }
 
     private static void sortMenu() {
-//        do {
+        while (true) {
             System.out.println("Choose sort method:");
             System.out.println("1. Sort by price ascending");
             System.out.println("2. Sort by price descending");
             System.out.println("3. Back");
-            drinkManager.sortDrinks(choice());
-//        } while (choice() != 3);
 
+            int userChoice = choice();
+
+            if (userChoice == 3) {
+                System.out.println("Going back to the main menu.");
+                break;
+            }
+
+            if (userChoice == 1 || userChoice == 2) {
+                drinkManager.sortDrinks(userChoice);
+                break;
+            }
+        }
     }
 }
