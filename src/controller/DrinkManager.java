@@ -12,6 +12,7 @@ import controller.validate_input.InputValidation;
 import model.Drink;
 import storage.DrinkStorage;
 
+import java.util.Collections;
 import java.util.List;
 
 public class DrinkManager {
@@ -20,6 +21,7 @@ public class DrinkManager {
 
     public void printList() {
         try {
+            Collections.sort(drinks);
             if (drinks.isEmpty()) {
                 System.out.println("There are no drinks.");
             } else {
@@ -30,6 +32,8 @@ public class DrinkManager {
             }
         } catch (NullPointerException e) {
             System.out.println("The list is empty");
+            //noinspection CallToPrintStackTrace
+            e.printStackTrace();
         }
 
     }

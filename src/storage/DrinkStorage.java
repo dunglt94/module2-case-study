@@ -39,16 +39,18 @@ public class DrinkStorage implements IDrinkStorage {
     @Override
     public List<Drink> readDrinks() {
         File file = new File("data/drink.txt");
+        List<Drink> drinks = new ArrayList<>();
         try {
             ObjectInputStream os = new ObjectInputStream(new FileInputStream(file));
             Object o = os.readObject();
             //noinspection unchecked
-            return (List<Drink>) o;
+            drinks=  (List<Drink>) o;
         } catch (EOFException e) {
             System.out.println("File is empty");
             return new ArrayList<>();
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException("Error reading drinks from file", e);
+            e.printStackTrace();
         }
+        return drinks;
     }
 }

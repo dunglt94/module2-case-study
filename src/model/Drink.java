@@ -1,10 +1,13 @@
 package model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Drink implements Discount, Serializable {
+public abstract class Drink implements Discount, Comparable<Drink>, Serializable {
+    @Serial
+    private static final long serialVersionUID = -5392678725166805118L;
     private String id;
     private String type;
     private String name;
@@ -82,5 +85,10 @@ public abstract class Drink implements Discount, Serializable {
                 ", manufacturing date: " + manufacturingDate.format(formatter) +
                 ", price: " + price +
                 ", quantity: " + quantity;
+    }
+
+    @Override
+    public int compareTo(Drink o) {
+        return Integer.parseInt(this.getId()) - Integer.parseInt(o.getId());
     }
 }
