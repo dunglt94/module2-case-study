@@ -82,7 +82,6 @@ public class CSVFileHandler {
         return new Drink(id, name, manuManufacturingDate, price, quantity) {
             @Override
             public double getRealPrice() {
-
                 return super.getPrice();
             }
 

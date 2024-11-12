@@ -6,10 +6,10 @@ import model.Drink;
 import java.util.Scanner;
 
 public class Main {
-    private static DrinkManager drinkManager = new DrinkManager();
+    private static final DrinkManager drinkManager = new DrinkManager();
     public static void main(String[] args) {
         while (true) {
-            System.out.println("Drink Manager");
+            System.out.println("Drink Storage Manager");
             System.out.println("1. Show drink list");
             System.out.println("2. Add drink");
             System.out.println("3. Edit drink");
