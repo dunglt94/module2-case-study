@@ -40,8 +40,7 @@ public class Main {
                     sortMenu();
                     break;
                 case 6:
-                    drinkManager.searchDrink();
-                    isContinue();
+                    searchMenu();
                     break;
                 case 7:
                     drinkManager.exportListToCSVFile();
@@ -107,6 +106,7 @@ public class Main {
             }
             newDrink = drinkManager.addDrink(userChoice);
         }
+        isContinue();
     }
 
     private static void sortMenu() {
@@ -129,5 +129,28 @@ public class Main {
                 break;
             }
         }
+        isContinue();
+    }
+
+    private static void searchMenu() {
+        while (true) {
+            System.out.println("Choose search method:");
+            System.out.println("1. Search by drink type");
+            System.out.println("2. Search by key word");
+            System.out.println("3. Back");
+
+            int userChoice = choice();
+
+            if (userChoice == 3) {
+                System.out.println("Going back to the main menu.");
+                break;
+            }
+
+            if (userChoice == 1 || userChoice == 2) {
+                drinkManager.searchDrink(userChoice);
+                break;
+            }
+        }
+        isContinue();
     }
 }

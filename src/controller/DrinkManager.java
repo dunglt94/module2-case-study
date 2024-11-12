@@ -7,6 +7,7 @@ import controller.edit.DrinkEdit;
 import controller.importCSVFile.CSVFileHandler;
 import controller.remove.DrinkRemove;
 import controller.search.SearchByKeyWord;
+import controller.search.SearchSelection;
 import controller.sort.SortSelection;
 import controller.validate_input.InputValidation;
 import model.Drink;
@@ -66,11 +67,9 @@ public class DrinkManager {
         sortSelection.sortList(choice);
     }
 
-    public void searchDrink() {
-//        DrinkSearch drinkSearch = new DrinkSearch();
-//        drinkSearch.searchDrinkByType();
-        SearchByKeyWord searchByKeyword = new SearchByKeyWord();
-        searchByKeyword.searchDrink();
+    public void searchDrink(int choice) {
+        SearchSelection searchSelection = new SearchSelection();
+        searchSelection.searchDrink(choice);
     }
 
     public void exportListToCSVFile() {

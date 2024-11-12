@@ -8,9 +8,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DrinkSearch {
+public class SearchByDrinkType implements SearchStrategy {
     static DrinkStorage drinkStorage = DrinkStorage.getInstance();
-    public void searchDrinkByType() {
+    @Override
+    public void search() {
         List<Drink> drinks = drinkStorage.readDrinks();
         try {
             boolean foundDrinkType = false;

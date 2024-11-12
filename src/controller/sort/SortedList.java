@@ -2,7 +2,6 @@ package controller.sort;
 
 import model.Drink;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SortedList {

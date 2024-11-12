@@ -8,9 +8,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SearchByKeyWord {
+public class SearchByKeyWord implements SearchStrategy {
     static DrinkStorage drinkStorage = DrinkStorage.getInstance();
-    public void searchDrink() {
+    @Override
+    public void search() {
         List<Drink> drinks = drinkStorage.readDrinks();
         try {
             boolean foundKeyWord = false;
