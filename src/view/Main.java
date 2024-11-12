@@ -114,16 +114,17 @@ public class Main {
             System.out.println("Choose sort method:");
             System.out.println("1. Sort by price ascending");
             System.out.println("2. Sort by price descending");
-            System.out.println("3. Back");
+            System.out.println("3. Sort by drink type");
+            System.out.println("4. Back");
 
             int userChoice = choice();
 
-            if (userChoice == 3) {
+            if (userChoice == 4) {
                 System.out.println("Going back to the main menu.");
                 break;
             }
 
-            if (userChoice == 1 || userChoice == 2) {
+            if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
                 drinkManager.sortDrinks(userChoice);
                 break;
             }

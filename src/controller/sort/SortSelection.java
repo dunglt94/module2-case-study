@@ -20,6 +20,10 @@ public class SortSelection {
                 sortedList.sort(drinks);
                 break;
             case 3:
+                sortedList.setSortStrategy(new SortByDrinkType());
+                sortedList.sort(drinks);
+                break;
+            case 4:
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");
