@@ -24,23 +24,24 @@ public class DrinkSearch {
                 System.out.print("Enter drink type to search: ");
                 String drinkType = scanner.nextLine();
 
-                Pattern pattern = Pattern.compile(drinkType + ", (.*?) MFG:");
+                Pattern pattern = Pattern.compile("(.*?), (.*?) MFG:");
                 Matcher matcher = pattern.matcher(content);
 
                 boolean matchFound = false;
+
                 while (matcher.find()) {
-                    System.out.println(matcher.group(1));
-                    matchFound = true;
+                    if (drinkType.equalsIgnoreCase(matcher.group(1))) {
+                        System.out.println(matcher.group(2));
+                        matchFound = true;
+                    }
                 }
 
                 if (matchFound) {
                     foundDrinkType = true;
                 } else {
-                    System.out.println("No matches found for " + drinkType + ".");
+                    System.out.println("No matches found for " + drinkType + ". Try again.");
                 }
             } while (!foundDrinkType);
-
-//            reader.close();
 
         } catch (Exception e) {
             throw new RuntimeException();
