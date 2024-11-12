@@ -11,18 +11,23 @@ public class DrinkTypeChoice {
         switch (choice) {
             case 1:
                 drink = drinkFactory.getDrink(DrinkType.BEER);
+                drink.setType("Beer");
                 return drink;
             case 2:
                 drink = drinkFactory.getDrink(DrinkType.COFFEE);
+                drink.setType("Coffee");
                 return drink;
             case 3:
                 drink = drinkFactory.getDrink(DrinkType.JUICE);
+                drink.setType("Juice");
                 return drink;
             case 4:
                 drink = drinkFactory.getDrink(DrinkType.MILK);
+                drink.setType("Milk");
                 return drink;
             case 5:
                 drink = drinkFactory.getDrink(DrinkType.SOFT_DRINK);
+                drink.setType("Soft Drink");
                 return drink;
             case 6:
                 return null;

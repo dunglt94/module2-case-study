@@ -11,7 +11,7 @@ import java.util.List;
 public class CSVFileHandler {
     private static final String COMMA_DELIMITER = ",";
     private static final String DATA_DRINKS_CSV = "data/drinks.csv";
-    private static final String FILE_HEADER = "id,name,manufacturerDate,expiryDate,Price,Quantity";
+    private static final String FILE_HEADER = "id,type,name,manufacturer date,expiry date,price,quantity";
 
     static DrinkStorage drinkStorage = DrinkStorage.getInstance();
 
@@ -27,6 +27,8 @@ public class CSVFileHandler {
 
             for (Drink drink : drinks) {
                 writer.write(drink.getId());
+                writer.write(COMMA_DELIMITER);
+                writer.write(drink.getType());
                 writer.write(COMMA_DELIMITER);
                 writer.write(drink.getName());
                 writer.write(COMMA_DELIMITER);
@@ -44,6 +46,9 @@ public class CSVFileHandler {
             writer.close();
         } catch (IOException e) {
             System.out.println("Error while writing CSV file !!!");
+            //noinspection CallToPrintStackTrace
+            e.printStackTrace();
+        } catch (Exception e) {
             //noinspection CallToPrintStackTrace
             e.printStackTrace();
         }
@@ -67,6 +72,10 @@ public class CSVFileHandler {
             }
             reader.close();
         } catch (IOException e) {
+            System.out.println("Error while reading CSV file !!!");
+            //noinspection CallToPrintStackTrace
+            e.printStackTrace();
+        } catch (Exception e) {
             //noinspection CallToPrintStackTrace
             e.printStackTrace();
         }
@@ -75,11 +84,12 @@ public class CSVFileHandler {
 
     private static Drink getDrink(String[] column) {
         String id = column[0];
-        String name = column[1];
-        LocalDate manuManufacturingDate = LocalDate.parse(column[2]);
-        double price = Double.parseDouble(column[4]);
-        int quantity = Integer.parseInt(column[5]);
-        return new Drink(id, name, manuManufacturingDate, price, quantity) {
+        String type = column[1];
+        String name = column[2];
+        LocalDate manuManufacturingDate = LocalDate.parse(column[3]);
+        double price = Double.parseDouble(column[5]);
+        int quantity = Integer.parseInt(column[6]);
+        return new Drink(id, type,name, manuManufacturingDate, price, quantity) {
             @Override
             public double getRealPrice() {
                 return super.getPrice();

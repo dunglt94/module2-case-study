@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public abstract class Drink implements Discount, Serializable {
     private String id;
+    private String type;
     private String name;
     private LocalDate manufacturingDate;
     private double price;
@@ -13,8 +14,9 @@ public abstract class Drink implements Discount, Serializable {
 
     public Drink() {}
 
-    public Drink(String id, String name, LocalDate manufacturingDate, double price, int quantity) {
+    public Drink(String id, String type, String name, LocalDate manufacturingDate, double price, int quantity) {
         this.id = id;
+        this.type = type;
         this.name = name;
         this.manufacturingDate = manufacturingDate;
         this.price = price;
@@ -27,6 +29,14 @@ public abstract class Drink implements Discount, Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -66,7 +76,8 @@ public abstract class Drink implements Discount, Serializable {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Drink id: " + id +
+        return "id: " + id +
+                ", drink type: " + type +
                 ", name: " + name +
                 ", manufacturing date: " + manufacturingDate.format(formatter) +
                 ", price: " + price +

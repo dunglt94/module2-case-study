@@ -13,20 +13,13 @@ public class DrinkSearch {
     public void searchDrinkByType() {
         List<Drink> drinks = drinkStorage.readDrinks();
         try {
-//            StringBuilder content = new StringBuilder();
-//
-//            for (Drink drink : drinks) {
-//                content.append(drink.toString()).append("\n");
-//            }
-
             boolean foundDrinkType = false;
             do {
                 Scanner scanner = new Scanner(System.in);
                 System.out.print("Enter drink type to search: ");
                 String drinkType = scanner.nextLine();
 
-                Pattern pattern = Pattern.compile("(.*?), (.*?), quantity");
-
+                Pattern pattern = Pattern.compile("drink type: (.*?), name");
                 boolean matchFound = false;
                 for (Drink drink : drinks) {
                     Matcher matcher = pattern.matcher(drink.toString());
@@ -44,9 +37,9 @@ public class DrinkSearch {
                     System.out.println("No matches found for " + drinkType + ". Try again.");
                 }
             } while (!foundDrinkType);
-
         } catch (Exception e) {
-            throw new RuntimeException();
+            //noinspection CallToPrintStackTrace
+            e.printStackTrace();
         }
     }
 }

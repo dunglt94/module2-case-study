@@ -69,13 +69,16 @@ public class DrinkManager {
 
     public void exportListToCSVFile() {
         CSVFileHandler csvFileHandler = new CSVFileHandler();
-//        csvFileHandler.writeCSVFile();
         List<Drink> drinks = csvFileHandler.readCSVFile();
 
         System.out.println("Exporting list...");
-        for (Drink drink : drinks) {
-            System.out.println(drink);
+        if (drinks.isEmpty()) {
+            System.out.println("There are no drinks.");
+        } else {
+            for (Drink drink : drinks) {
+                System.out.println(drink);
+            }
+            System.out.println("The list was exported successfully.");
         }
-        System.out.println("The list was exported successfully.");
     }
 }

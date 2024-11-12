@@ -17,7 +17,8 @@ public class Coffee extends Drink {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Coffee, id: " + super.getId() +
+        return "id: " + super.getId() +
+                ", drink type" + super.getType() +
                 ", name: " + super.getName() +
                 ", MFG: " + super.getManufacturingDate().format(formatter) +
                 ", EXP: " + this.getExpiryDate().format(formatter) +
