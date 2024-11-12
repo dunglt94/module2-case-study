@@ -43,7 +43,6 @@ public class Main {
                 default:
                     System.out.println("Not a valid choice. Try again.");
             }
-
             isContinue();
         }
     }
