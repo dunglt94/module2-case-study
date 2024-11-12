@@ -71,6 +71,8 @@ public class DrinkManager {
         CSVFileHandler csvFileHandler = new CSVFileHandler();
 //        csvFileHandler.writeCSVFile();
         List<Drink> drinks = csvFileHandler.readCSVFile();
+
+        System.out.println("Exporting list...");
         for (Drink drink : drinks) {
             System.out.println(drink);
         }

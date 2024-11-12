@@ -45,6 +45,7 @@ public class Main {
                     break;
                 case 7:
                     drinkManager.exportListToCSVFile();
+                    isContinue();
                     break;
                 case 8:
                     System.out.println("Have a nice day!");
