@@ -6,7 +6,6 @@ import controller.add.DrinkTypeChoice;
 import controller.edit.DrinkEdit;
 import controller.importCSVFile.CSVFileHandler;
 import controller.remove.DrinkRemove;
-import controller.search.SearchByKeyWord;
 import controller.search.SearchSelection;
 import controller.sort.SortSelection;
 import controller.validate_input.InputValidation;

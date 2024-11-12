@@ -1,9 +1,5 @@
 package controller.search;
 
-import controller.sort.SortByDrinkType;
-import controller.sort.SortByPriceAsc;
-import controller.sort.SortByPriceDes;
-
 public class SearchSelection {
     public void searchDrink(int choice) {
         SearchMethod searchMethod = new SearchMethod();
