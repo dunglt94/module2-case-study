@@ -79,9 +79,10 @@ public class CSVFileHandler {
         LocalDate manuManufacturingDate = LocalDate.parse(column[2]);
         double price = Double.parseDouble(column[4]);
         int quantity = Integer.parseInt(column[5]);
-        Drink drink = new Drink(id, name, manuManufacturingDate, price, quantity) {
+        return new Drink(id, name, manuManufacturingDate, price, quantity) {
             @Override
             public double getRealPrice() {
+
                 return super.getPrice();
             }
 
@@ -90,6 +91,5 @@ public class CSVFileHandler {
                 return super.getManufacturingDate().plusYears(2);
             }
         };
-        return drink;
     }
 }
