@@ -6,7 +6,7 @@ import model.Drink;
 import java.util.Scanner;
 
 public class Main {
-    private static DrinkManager drinkManager = new DrinkManager();
+    private static final DrinkManager drinkManager = new DrinkManager();
     public static void main(String[] args) {
         while (true) {
             System.out.println("Drink Storage Manager");
@@ -126,10 +126,11 @@ public class Main {
 
             if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
                 drinkManager.sortDrinks(userChoice);
+                isContinue();
                 break;
             }
         }
-        isContinue();
+
     }
 
     private static void searchMenu() {
@@ -148,9 +149,10 @@ public class Main {
 
             if (userChoice == 1 || userChoice == 2) {
                 drinkManager.searchDrink(userChoice);
+                isContinue();
                 break;
             }
         }
-        isContinue();
+
     }
 }
