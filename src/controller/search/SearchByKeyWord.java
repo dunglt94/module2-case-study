@@ -24,7 +24,7 @@ public class SearchByKeyWord implements SearchStrategy {
 
                 if (words.length > 1) {
                     for (Drink drink : drinks) {
-                        Pattern pattern = Pattern.compile("name: (.*?), manufacturing");
+                        Pattern pattern = Pattern.compile("name: (.*?), MFG");
                         Matcher matcher = pattern.matcher(drink.toString());
                         while (matcher.find()) {
                             if (matcher.group(1).toLowerCase().contains(keyWord.toLowerCase())) {
@@ -40,7 +40,7 @@ public class SearchByKeyWord implements SearchStrategy {
                     }
                 } else if (words.length == 1) {
                     for (String word : words) {
-                        Pattern pattern = Pattern.compile("name: (.*?), manufacturing");
+                        Pattern pattern = Pattern.compile("name: (.*?), MFG");
                         for (Drink drink : drinks) {
                             Matcher matcher = pattern.matcher(drink.toString());
                             while (matcher.find()) {

@@ -1,6 +1,8 @@
 package controller.importCSVFile;
 
 import model.Drink;
+import model.drink_factory.DrinkFactory;
+import model.drink_factory.DrinkType;
 import storage.DrinkStorage;
 
 import java.io.*;
@@ -10,9 +12,8 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFileHandler implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 3285825483624923850L;
+public class CSVFileHandler {
+
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final String COMMA_DELIMITER = ",";
     private static final String DATA_DRINKS_CSV = "data/drinks.csv";
@@ -90,6 +91,7 @@ public class CSVFileHandler implements Serializable {
         String type = column[1];
         String name = column[2];
         LocalDate manuManufacturingDate = null;
+        DrinkFactory drinkFactory = new DrinkFactory();
 
         try {
             manuManufacturingDate = LocalDate.parse(column[3], DATE_FORMATTER);
@@ -100,18 +102,23 @@ public class CSVFileHandler implements Serializable {
         }
         double price = Double.parseDouble(column[5]);
         int quantity = Integer.parseInt(column[6]);
-        return new Drink(id, type,name, manuManufacturingDate, price, quantity) {
-            @Serial
-            private static final long serialVersionUID = 3285825483624923850L;
-            @Override
-            public double getDiscountedPrice() {
-                return super.getPrice();
-            }
 
-            @Override
-            public LocalDate getExpiryDate() {
-                return super.getManufacturingDate().plusYears(2);
+        Drink drink = null;
+        try {
+            DrinkType drinkType = DrinkType.valueOf(type.toUpperCase().replace(" ","_"));
+            drink = drinkFactory.getDrink(drinkType);
+
+            if (drink != null) {
+                drink.setId(id);
+                drink.setType(type);
+                drink.setName(name);
+                drink.setManufacturingDate(manuManufacturingDate);
+                drink.setPrice(price);
+                drink.setQuantity(quantity);
             }
-        };
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return drink;
     }
 }

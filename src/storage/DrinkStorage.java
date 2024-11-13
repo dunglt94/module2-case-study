@@ -49,6 +49,7 @@ public class DrinkStorage implements IDrinkStorage {
             System.out.println("File is empty");
             return new ArrayList<>();
         } catch (IOException | ClassNotFoundException e) {
+            //noinspection CallToPrintStackTrace
             e.printStackTrace();
         }
         return drinks;
