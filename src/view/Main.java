@@ -6,7 +6,7 @@ import model.Drink;
 import java.util.Scanner;
 
 public class Main {
-    private static final DrinkManager drinkManager = new DrinkManager();
+    private static DrinkManager drinkManager = new DrinkManager();
     public static void main(String[] args) {
         while (true) {
             System.out.println("Drink Storage Manager");

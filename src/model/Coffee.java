@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Coffee extends Drink {
     @Override
@@ -10,19 +9,18 @@ public class Coffee extends Drink {
     }
 
     @Override
-    public double getRealPrice() {
+    public double getDiscountedPrice() {
         return getPrice();
     }
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "id: " + super.getId() +
                 ", drink type" + super.getType() +
                 ", name: " + super.getName() +
-                ", MFG: " + super.getManufacturingDate().format(formatter) +
-                ", EXP: " + this.getExpiryDate().format(formatter) +
-                ", price: " + this.getRealPrice() +
+                ", MFG: " + super.getManufacturingDate().format(DATE_FORMATTER) +
+                ", EXP: " + this.getExpiryDate().format(DATE_FORMATTER) +
+                ", price: " + this.getDiscountedPrice() +
                 ", quantity: " + super.getQuantity();
     }
 }

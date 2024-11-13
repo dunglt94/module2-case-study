@@ -1,5 +1,5 @@
 package model;
 
 public interface Discount {
-    double getRealPrice();
+    double getDiscountedPrice();
 }

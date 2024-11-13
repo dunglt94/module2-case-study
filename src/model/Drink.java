@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public abstract class Drink implements Discount, Comparable<Drink>, Serializable {
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     @Serial
     private static final long serialVersionUID = -5392678725166805118L;
     private String id;
@@ -78,11 +79,11 @@ public abstract class Drink implements Discount, Comparable<Drink>, Serializable
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "id: " + id +
                 ", drink type: " + type +
                 ", name: " + name +
-                ", manufacturing date: " + manufacturingDate.format(formatter) +
+                ", manufacturing date: " + manufacturingDate.format(DATE_FORMATTER) +
+                ", expiry date: " + manufacturingDate.format(DATE_FORMATTER) +
                 ", price: " + price +
                 ", quantity: " + quantity;
     }

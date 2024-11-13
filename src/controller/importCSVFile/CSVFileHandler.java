@@ -5,10 +5,15 @@ import storage.DrinkStorage;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFileHandler {
+public class CSVFileHandler implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 3285825483624923850L;
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final String COMMA_DELIMITER = ",";
     private static final String DATA_DRINKS_CSV = "data/drinks.csv";
     private static final String FILE_HEADER = "id,type,name,manufacturer date,expiry date,price,quantity";
@@ -32,17 +37,17 @@ public class CSVFileHandler {
                 writer.write(COMMA_DELIMITER);
                 writer.write(drink.getName());
                 writer.write(COMMA_DELIMITER);
-                writer.write(drink.getManufacturingDate().toString());
+                writer.write(drink.getManufacturingDate().format(DATE_FORMATTER));
                 writer.write(COMMA_DELIMITER);
-                writer.write(drink.getExpiryDate().toString());
+                writer.write(drink.getExpiryDate().format(DATE_FORMATTER));
                 writer.write(COMMA_DELIMITER);
                 writer.write(Double.toString(drink.getPrice()));
                 writer.write(COMMA_DELIMITER);
                 writer.write(Integer.toString(drink.getQuantity()));
                 writer.newLine();
-                writer.flush();
             }
 
+            writer.flush();
             writer.close();
         } catch (IOException e) {
             System.out.println("Error while writing CSV file !!!");
@@ -75,10 +80,8 @@ public class CSVFileHandler {
             System.out.println("Error while reading CSV file !!!");
             //noinspection CallToPrintStackTrace
             e.printStackTrace();
-        } catch (Exception e) {
-            //noinspection CallToPrintStackTrace
-            e.printStackTrace();
         }
+
         return drinks;
     }
 
@@ -86,12 +89,22 @@ public class CSVFileHandler {
         String id = column[0];
         String type = column[1];
         String name = column[2];
-        LocalDate manuManufacturingDate = LocalDate.parse(column[3]);
+        LocalDate manuManufacturingDate = null;
+
+        try {
+            manuManufacturingDate = LocalDate.parse(column[3], DATE_FORMATTER);
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format for manufacturing date");
+            //noinspection CallToPrintStackTrace
+            e.printStackTrace();
+        }
         double price = Double.parseDouble(column[5]);
         int quantity = Integer.parseInt(column[6]);
         return new Drink(id, type,name, manuManufacturingDate, price, quantity) {
+            @Serial
+            private static final long serialVersionUID = 3285825483624923850L;
             @Override
-            public double getRealPrice() {
+            public double getDiscountedPrice() {
                 return super.getPrice();
             }
 
