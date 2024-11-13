@@ -35,7 +35,6 @@ public class DrinkManager {
             //noinspection CallToPrintStackTrace
             e.printStackTrace();
         }
-
     }
 
     public Drink addDrink(int choice) {
@@ -50,7 +49,8 @@ public class DrinkManager {
     }
 
     public void editDrink() {
-        DrinkEdit drinkEdit = new DrinkEdit(new InputValidation(), new DrinkInformation());
+        DrinkEdit drinkEdit = new DrinkEdit(new InputValidation(),
+                                            new DrinkInformation());
         drinks = drinkEdit.editDrink();
         drinkStorage.writeDrinks(drinks);
     }

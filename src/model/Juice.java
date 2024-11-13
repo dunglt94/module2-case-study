@@ -17,7 +17,7 @@ public class Juice extends Drink {
     @Override
     public String toString() {
         return "id: " + super.getId() +
-                ", drink type" + super.getType() +
+                ", drink type: " + super.getType() +
                 ", name: " + super.getName() +
                 ", MFG: " + super.getManufacturingDate().format(DATE_FORMATTER) +
                 ", EXP: " + this.getExpiryDate().format(DATE_FORMATTER) +

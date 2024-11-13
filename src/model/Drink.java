@@ -82,8 +82,8 @@ public abstract class Drink implements Discount, Comparable<Drink>, Serializable
         return "id: " + id +
                 ", drink type: " + type +
                 ", name: " + name +
-                ", manufacturing date: " + manufacturingDate.format(DATE_FORMATTER) +
-                ", expiry date: " + manufacturingDate.format(DATE_FORMATTER) +
+                ", MFG: " + manufacturingDate.format(DATE_FORMATTER) +
+                ", EXP: " + manufacturingDate.format(DATE_FORMATTER) +
                 ", price: " + price +
                 ", quantity: " + quantity;
     }
